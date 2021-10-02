@@ -1,0 +1,53 @@
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: .8rem .3rem;
+}
+
+label {
+  display: block;
+  font-size: .8rem;
+  margin-bottom: .3rem;
+  margin-left: .2rem;
+}
+
+.input-message {
+  display: block;
+  font-size: .7rem;
+  color: var(--light-font);
+  margin-top: .3rem;
+  margin-left: .2rem;
+}
+
+input{
+  padding: .438rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  font-size: .9rem;
+  line-height: .9rem;
+}
+
+input::placeholder {
+  color: var(--neutral-60);
+}
+
+input:active,
+input:focus,
+input:focus-visible {
+  border-color: var(--purple-40);
+  outline: none;
+}
+
+input.readonly {
+  padding-left: .2rem;
+  border-color: transparent
+}
+
+input.is-valid {
+  border-color: var(--success-40);
+}
+
+input.is-invalid {
+  border-color: var(--error-40);
+}
