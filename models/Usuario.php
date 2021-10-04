@@ -58,10 +58,75 @@ class Usuario
         return $usuarios;
     }
 
+    public static function get($filter)
+    {
+        $conn = require_once path('./helpers/Connection.php');
+        $query = $conn->query("SELECT * FROM usuarios WHERE CONCAT(nombre, apellido) LIKE '%$filter%' OR email LIKE '%$filter%'");
+        $usuarios = [];
+        if ($query) {
+            while ($usuario =  mysqli_fetch_assoc($query)) {
+                array_push($usuarios, $usuario);
+            }
+        }
+        return $usuarios;
+    }
+
+    public function find($id){
+        $conn = require_once path('./helpers/Connection.php');
+        $query = $conn->query("SELECT * FROM usuarios WHERE id = $id LIMIT 1");
+        if ($query) {
+            $usuario =  mysqli_fetch_assoc($query);
+            $this->id = $id;
+            $this->nombre = $usuario['nombre'];
+            $this->apellido = $usuario['apellido'];
+            $this->email = $usuario['email'];
+            $this->password = $usuario['password'];
+        }
+    }
+    public function findByEmail($email){
+        $conn = require_once path('./helpers/Connection.php');
+        $query = $conn->query("SELECT * FROM usuarios WHERE email = '$email' LIMIT 1");
+        if ($query) {
+            $usuario =  mysqli_fetch_assoc($query);
+            $this->id = $usuario['id'];
+            $this->nombre = $usuario['nombre'];
+            $this->apellido = $usuario['apellido'];
+            $this->email = $usuario['email'];
+            $this->password = $usuario['password'];
+        }
+    }
+
     public function insert()
     {
         $conn = require_once path('/helpers/Connection.php');
         $sql = "INSERT INTO `usuarios` (`nombre`,  `apellido`,  `email`,  `password`) VALUES  ('$this->nombre','$this->apellido', '$this->email', '" . password_hash($this->password, PASSWORD_BCRYPT) . "' )";
+        if (!$conn->query($sql)) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            return;
+        }
+    }
+    public function updateWithoutPass()
+    {
+        $conn = require_once path('/helpers/Connection.php');
+        $sql = "UPDATE `usuarios` SET `nombre`='$this->nombre',`apellido`='$this->apellido',`email`='$this->email' WHERE `id` = $this->id";
+        if (!$conn->query($sql)) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            return;
+        }
+    }
+    public function update()
+    {
+        $conn = require_once path('/helpers/Connection.php');
+        $sql = "UPDATE `usuarios` SET `nombre`='$this->nombre',`apellido`='$this->apellido',`email`='$this->email',`password`='" . password_hash($this->password, PASSWORD_BCRYPT) . "' WHERE `id` = $this->id";
+        if (!$conn->query($sql)) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            return;
+        }
+    }
+    public static function delete($id)
+    {
+        $conn = require_once path('/helpers/Connection.php');
+        $sql = "DELETE FROM `usuarios` WHERE `id` = $id";
         if (!$conn->query($sql)) {
             echo "Error: " . $sql . "<br>" . $conn->error;
             return;

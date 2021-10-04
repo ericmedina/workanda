@@ -1,6 +1,11 @@
-button.btn, a.btn{
-  display: inline-block;
+button, a{
+  line-height: 1.15;
   text-decoration: none;
+  font-size: .9rem;
+  font-weight: 500;
+}
+.btn{
+  display: inline-block;
   border:none;
   padding: .485rem 1rem;
   min-width: 120px;
@@ -10,6 +15,7 @@ button.btn, a.btn{
   font-weight: 500;
   margin:.8rem .3rem;
   color:white;
+  text-align: center;
 }
 .btn:hover{
   cursor:pointer;
@@ -50,4 +56,64 @@ button.btn, a.btn{
 }
 .btn-dark:hover{
   background-color: var(--neutral-90);
+}
+.btn-flat-primary{
+  color: var(--primary-color);
+  box-shadow:none;
+  border:none;
+  background-color:white;
+}
+.btn-flat-primary:hover{
+  background-color: var(--purple-10);
+  box-shadow:none;
+}
+.btn-flat-success{
+  color: var(--success-60);
+  box-shadow:none;
+  border:none;
+  background-color:white;
+}
+.btn-flat-success:hover{
+  background-color: var(--success-10);
+  box-shadow:none;
+}
+.btn-flat-warning{
+  color: var(--warning-60);
+  box-shadow:none;
+  border:none;
+  background-color:white;
+}
+.btn-flat-warning:hover{
+  background-color: var(--warning-10);
+  box-shadow:none;
+}
+.btn-flat-error{
+  color: var(--error-60);
+  box-shadow:none;
+  border:none;
+  background-color:white;
+}
+.btn-flat-error:hover{
+  background-color: var(--error-10);
+  box-shadow:none;
+}
+.btn-flat-info{
+  color: var(--info-60);
+  box-shadow:none;
+  border:none;
+  background-color:white;
+}
+.btn-flat-info:hover{
+  background-color: var(--info-10);
+  box-shadow:none;
+}
+.btn-flat-dark{
+  color: var(--neutral-100);
+  box-shadow:none;
+  border:none;
+  background-color:white;
+}
+.btn-flat-dark:hover{
+  background-color: var(--neutral-30);
+  box-shadow:none;
 }

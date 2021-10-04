@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "layout/variables.css";
+@import 'layout/helpers.css';
+@import 'layout/navbar.css';
 @import 'layout/inputs.css';
 @import 'layout/buttons.css';
 @import 'layout/tables.css';
@@ -49,12 +50,6 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
-}
-nav{
-  width: 100vw;
-  background-color: white;
-  height: 65px;
-  box-shadow: var(--shadow-card);
 }
 main{
   margin-left: 2.5%;

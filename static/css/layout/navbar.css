@@ -1,0 +1,45 @@
+nav{
+  width: 100vw;
+  background-color: white;
+  height: 65px;
+  box-shadow: var(--shadow-card);
+  padding: .3rem 2.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: transparent;
+  border:none;
+  cursor: pointer;
+  max-width: 50%;
+}
+.profile-user{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.profile-user > .username{
+  font-size: .95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+.profile-user > .role{
+  font-size: .85rem;
+  color: #a5a5a5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}

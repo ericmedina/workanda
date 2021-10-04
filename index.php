@@ -1,12 +1,21 @@
 <?php
+session_start();
 include_once 'helpers/Router.php';
 include 'helpers/GlobalFunctions.php';
 
 $router = new Router();
 
+$router->get('/login', 'AuthController@index');
+$router->post('/login', 'AuthController@login');
+
+
 $router->get('/', 'UsuarioController@index');
+$router->get('/ver-usuario', 'UsuarioController@show');
 $router->get('/nuevo-usuario', 'UsuarioController@create');
 $router->post('/nuevo-usuario', 'UsuarioController@store');
+$router->get('/editar-usuario', 'UsuarioController@edit');
+$router->post('/editar-usuario', 'UsuarioController@update');
+$router->post('/eliminar-usuario', 'UsuarioController@delete');
 
 $router->get('/crear-tabla', function () {
   $conn = require_once path('/helpers/Connection.php');
@@ -24,5 +33,3 @@ $router->get('/crear-tabla', function () {
     }
   }
 });
-
-$router->get('/login', 'AuthController@index');

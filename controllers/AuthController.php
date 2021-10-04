@@ -1,8 +1,26 @@
 <?php
 
 class AuthController{
+
   public function index(){
-    $variable = 'ésto viene en la variable';
-    require_once view('login');
+    return view('login');
+  }
+
+  public function login(){
+    include_once path('/models/Usuario.php');
+    $request = new Request;
+    $usuario = new Usuario;
+    $usuario->findByEmail($request->email);
+    if($usuario->getId()){
+      if(password_verify($request->password, $usuario->getPassword())){
+        $_SESSION['Usuario'] = serialize($usuario);
+        redirect('/');
+      }else{
+        echo 'Contraseña incorrecta';
+        return;
+      }
+    }
+    echo 'Usuario no encontrado';
+    return;
   }
 }
