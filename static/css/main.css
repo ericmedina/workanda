@@ -2,6 +2,7 @@
 @import "layout/variables.css";
 @import 'layout/inputs.css';
 @import 'layout/buttons.css';
+@import 'layout/tables.css';
 
 *{
   box-sizing: border-box;
@@ -17,7 +18,8 @@ body {
 }
 
 .card-title{
-  padding: 0 .5rem;
+  padding: .1rem .5rem;
+  margin: .4rem 0 .2rem 0;
 }
 
 .content-login{
@@ -30,7 +32,7 @@ body {
   align-items: center;
   background-image: url('../images/bienvenido-al-mundo-workanda.jpg'),linear-gradient(49deg,#5c0b44 19%,#ffaf1c 100%) !important;
 }
-.card-login{
+.card-login, .card{
   background-color: white;
   border-radius: .3rem;
   padding: .5rem;
@@ -53,4 +55,12 @@ nav{
   background-color: white;
   height: 65px;
   box-shadow: var(--shadow-card);
+}
+main{
+  margin-left: 2.5%;
+  width: 95%;
+}
+main>.card{
+  margin-top: 1rem;
+  padding:1rem;
 }
