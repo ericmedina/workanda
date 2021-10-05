@@ -11,8 +11,32 @@
 </head>
 
 <body>
-  <?php if(user()){include_once(path('/views/layout/navbar.php')); }?>
-  <?php include_once(path('views/'.$view.'.php'))?>
+  <?php if (user()) {
+    include_once(path('/views/layout/navbar.php'));
+  } ?>
+  <?php include_once(path('views/' . $view . '.php')) ?>
+  <script type="text/javascript">
+    function toggleDropdown(element) {
+      let dropdown = document.querySelector(`#${element.dataset.dropdown}`)
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show')
+      } else {
+        dropdown.classList.add('show')
+        document.addEventListener("click", function(event){
+          closeDropdown(event, element)
+        });
+      }
+    }
+
+    function closeDropdown(event, element) {
+      let dropdown = document.querySelector(`#${element.dataset.dropdown}`)
+      if(!element.contains(event.target)){
+        if (dropdown.classList.contains("show")) {
+          dropdown.classList.remove("show");
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>

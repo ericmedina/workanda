@@ -1,13 +1,31 @@
 <nav>
-  <img src="<?php echo url('/static/images/workanda-logo.png');?>" class="nav-logo" alt="">
-  <button class="nav-profile dropdown-button">
-        <div class="profile-user" >
-          <span class="username">
-            <?php echo user()->getNombre(). " ".user()->getApellido(); ?>
-          </span>
-          <span class="role">
+  <img src="<?php echo url('/static/images/workanda-logo.png'); ?>" class="nav-logo">
+  <div class="dropdown right">
+    <button class="nav-profile dropdown-button" onclick="toggleDropdown(this)" data-dropdown="nav-dropdown">
+      <div class="profile-user">
+        <span class="username">
+          <?php echo user()->getNombre() . " " . user()->getApellido(); ?>
+        </span>
+        <span class="role">
           <?php echo user()->getEmail(); ?>
-          </span>
-        </div>
-      </button>
+        </span>
+      </div>
+    </button>
+    <div class="dropdown-content" id="nav-dropdown">
+      <p class="list-title">Mi perfil</p>
+      <ul class="list">
+        <li class="list-item">
+          <a href="/mis-datos">Mis datos</a>
+        </li>
+        <li class="list-item">
+          <a href="/cambiar-password">Cambiar contraseña</a>
+        </li>
+        <li class="list-item">
+          <form action="logout" method="post">
+            <button type="submit">Cerrar sesión</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

@@ -4,6 +4,7 @@
 @import 'layout/inputs.css';
 @import 'layout/buttons.css';
 @import 'layout/tables.css';
+@import 'layout/dropdown.css';
 
 *{
   box-sizing: border-box;
