@@ -59,3 +59,25 @@ main>.card{
   margin-top: 1rem;
   padding:1rem;
 }
+
+.message{
+  width: 100%;
+  border-radius: .3rem;
+  border:1px solid var(--bg-color);
+  padding:1rem;
+  margin: 1rem 0rem;
+  font-weight: 500;
+}
+.message>p{
+  margin:0;
+}
+.message.success{
+  background-color: var(--success-20);
+  border-color: var(--success-40);
+  color:var(--body-font);
+}
+.message.error{
+  background-color: var(--error-20);
+  border-color: var(--error-40);
+  color:var(--body-font);
+}

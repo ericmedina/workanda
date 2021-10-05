@@ -2,6 +2,7 @@
     <main>
         <div class="card">
             <h2 class="card-title">Nuevo usuario</h2>
+            <?php include_once path('/views/layout/message.php'); ?>
             <form action="<?php echo url('/nuevo-usuario')?>" method="POST">
                 <div class="input-group">
                     <label for="nombre">Nombre</label>

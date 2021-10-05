@@ -31,8 +31,13 @@ class UsuarioController{
     $usuario->setApellido($request->apellido);
     $usuario->setEmail($request->email);
     $usuario->setPassword($request->password);
-    $usuario->insert();
-    redirect('/');
+    if($usuario->insert()){
+      showMessage('success', $usuario->getNombre()." ".$usuario->getApellido()." se ha agregado correctamente");
+      redirect('/');
+    }else{
+      showMessage('error', 'No se ha podido guardar el usuario');
+      back();
+    }
   }
 
   //VISTA VER USUARIO
@@ -59,14 +64,28 @@ class UsuarioController{
       $usuario->setNombre($request->nombre);
       $usuario->setApellido($request->apellido);
       $usuario->setEmail($request->email);
-      $usuario->updateWithoutPass();
-      redirect('/');
+      
+      if($usuario->updateWithoutPass()){
+        showMessage('success', $usuario->getNombre()." ".$usuario->getApellido()." se ha modificado correctamente");
+        redirect('/');
+      }else{
+        showMessage('error', 'No se ha podido modificar el usuario');
+        back();
+      }
   }
 
   //Eliminar USUARIO EN BD
   function delete(){
     $request = new Request;
-    Usuario::delete($request->id);
-    redirect('/');
+    $usuario = new Usuario;
+    $usuario->find($request->id);
+
+    if(Usuario::delete($request->id)){
+      showMessage('success', $usuario->getNombre()." ".$usuario->getApellido()." se ha eliminado correctamente");
+      redirect('/');
+    }else{
+      showMessage('error', 'No se ha podido eliminar el usuario');
+      back();
+    }
   }
 }

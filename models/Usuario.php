@@ -101,9 +101,9 @@ class Usuario
         $conn = require_once path('/helpers/Connection.php');
         $sql = "INSERT INTO `usuarios` (`nombre`,  `apellido`,  `email`,  `password`) VALUES  ('$this->nombre','$this->apellido', '$this->email', '" . password_hash($this->password, PASSWORD_BCRYPT) . "' )";
         if (!$conn->query($sql)) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            return;
+            return false;
         }
+        return true;
     }
     public function updateWithoutPass()
     {

@@ -2,6 +2,7 @@
    <main>
      <div class="card">
        <h2 class="card-title">Listado de usuarios</h2>
+       <?php include_once path('/views/layout/message.php'); ?>
        <div class="actions-table">
          <a class="btn btn-primary" href="<?php echo url('/nuevo-usuario') ?>">Nuevo usuario</a>
          <form class="filter">
@@ -25,10 +26,10 @@
          <tbody>
            <?php foreach($usuarios as $usuario){ ?>
            <tr onclick="showUsuario(<?php echo $usuario['id'] ?>)">
-             <td><?php echo $usuario['id'] ?></td>
-             <td><?php echo $usuario['nombre'] ?></td>
-             <td><?php echo $usuario['apellido'] ?></td>
-             <td><?php echo $usuario['email'] ?></td>
+             <td class="w-100"><span class="table-label">#</span><?php echo $usuario['id'] ?></td>
+             <td class="w-100"><span class="table-label">Nombre: </span><?php echo $usuario['nombre'] ?></td>
+             <td class="w-100"><span class="table-label">Apellido:</span><?php echo $usuario['apellido'] ?></td>
+             <td class="w-100"><span class="table-label">Email:</span><?php echo $usuario['email'] ?></td>
            </tr>
            <?php } ?>
          </tbody>

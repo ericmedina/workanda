@@ -2,12 +2,14 @@
 function path($filename){
   return dirname(__FILE__).'/../'.$filename;
 }
+
 function view($view, $with = []){
   foreach($with as $key => $value){
     ${$key} = $value;
   }
   require_once path('views/layout/template.php');
 }
+
 function url($path){
   if ( (!empty($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] == 'https') ||
      (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ||
@@ -20,8 +22,13 @@ function url($path){
   $projectdir = str_replace('index.php','',$_SERVER['SCRIPT_NAME']);
   return $host.$projectdir.ltrim($path, '/');
 }
+
 function redirect($url){
   header('location: '.url($url));
+}
+
+function back(){
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 function user(){
@@ -29,4 +36,10 @@ function user(){
     return unserialize($_SESSION['Usuario']);
   }
   return null;
+}
+
+function showMessage($class, $text){
+  $_SESSION['message'] = [];
+  $_SESSION['message']['class'] = $class;
+  $_SESSION['message']['text'] = $text;
 }

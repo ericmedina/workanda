@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php if($view != 'login'){include_once(path('/views/layout/navbar.php')); }?>
+  <?php if(user()){include_once(path('/views/layout/navbar.php')); }?>
   <?php include_once(path('views/'.$view.'.php'))?>
 </body>
 
