@@ -22,11 +22,10 @@
       <div class="space-between">
         <div class="space-between">
           <a href="<?php echo url('/editar-usuario?id='.$usuario->getId()); ?>" class="btn btn-warning">Editar</a>
-          <form action="<?php echo url('/eliminar-usuario'); ?>" method="post">
+          <form action="<?php echo url('/eliminar-usuario'); ?>" method="post" class="space-between">
             <input type="hidden" name="id" value="<?php echo $usuario->getId(); ?>">
             <button type="submit" class="btn btn-error">Eliminar</button>
           </form>
-          <!-- <a href="<?php echo url('/eliminar-usuario?id='.$usuario->getId()); ?>" class="btn btn-error">Eliminar</a> -->
         </div>
         <a href="<?php echo url('/') ?>" class="btn btn-flat-primary">Volver</a>
       </div>

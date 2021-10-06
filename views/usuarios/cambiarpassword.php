@@ -1,7 +1,7 @@
 <div class="main">
     <main>
         <div class="card">
-            <h2 class="card-title">Cambiar password</h2>
+            <h2 class="card-title">Cambiar contraseña</h2>
             <?php include_once path('/views/layout/message.php'); ?>
             <form action="<?php echo url('/cambiar-password')?>" method="POST" onsubmit="return verify(this);" autocomplete="off">
                 <div class="input-group">
