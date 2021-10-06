@@ -15,13 +15,9 @@
       <p class="list-title">Mi perfil</p>
       <ul class="list">
         <li class="list-item">
-          <a href="/mis-datos">Mis datos</a>
-        </li>
+          <a href="<?php echo url('/cambiar-password') ?>">Cambiar contraseña</a>
         <li class="list-item">
-          <a href="/cambiar-password">Cambiar contraseña</a>
-        </li>
-        <li class="list-item">
-          <form action="logout" method="post">
+          <form action="<?php echo url('/logout') ?>" method="post">
             <button type="submit">Cerrar sesión</button>
           </form>
         </li>

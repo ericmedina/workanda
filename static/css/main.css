@@ -37,9 +37,9 @@ body {
 .card-login, .card{
   background-color: white;
   border-radius: .3rem;
-  padding: .5rem;
+  padding: 1rem;
   box-shadow: var(--shadow-card);
-  min-width: 25%;
+  min-width: 30%;
 }
 .justify-end{
   display: flex;

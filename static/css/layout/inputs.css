@@ -20,6 +20,9 @@ label {
   margin-top: .3rem;
   margin-left: .2rem;
 }
+.input-message.error {
+  color: var(--error-40);
+}
 
 input{
   padding: .438rem 1rem;

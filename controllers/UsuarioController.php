@@ -77,15 +77,43 @@ class UsuarioController{
   //Eliminar USUARIO EN BD
   function delete(){
     $request = new Request;
-    $usuario = new Usuario;
-    $usuario->find($request->id);
 
     if(Usuario::delete($request->id)){
-      showMessage('success', $usuario->getNombre()." ".$usuario->getApellido()." se ha eliminado correctamente");
+      showMessage('success', "Se ha eliminado correctamente");
       redirect('/');
     }else{
       showMessage('error', 'No se ha podido eliminar el usuario');
       back();
     }
   }
+
+  function editPassword(){
+    return view('usuarios/cambiarpassword');
+
+  }
+
+  function updatePassword(){
+    $request = new Request;
+    if($request->password == $request->confirmpassword){
+      if(password_verify($request->oldpassword, user()->getPassword())){
+        $usuario = new Usuario;
+        $usuario->setId(user()->getId());
+        $usuario->setPassword($request->password);
+        if($usuario->updatePassword()){
+          showMessage('success', "Su contraseña se ha modificado correctamente");
+          redirect('/');
+        }else{
+          showMessage('error', 'Su contraseña no se ha podido modificar');
+          back();
+        }
+      }else{
+        showMessage('error', 'Las contraseñas no coinciden');
+        back();
+      }
+    }else{
+      showMessage('error', 'La nueva contraseña no coincide con su confirmación');
+      back();
+    }
+  }
+
 }

@@ -23,4 +23,9 @@ class AuthController{
     echo 'Usuario no encontrado';
     return;
   }
+  
+  public function logout(){
+    unset($_SESSION['Usuario']);
+    redirect('/');
+  }
 }

@@ -110,26 +110,26 @@ class Usuario
         $conn = require_once path('/helpers/Connection.php');
         $sql = "UPDATE `usuarios` SET `nombre`='$this->nombre',`apellido`='$this->apellido',`email`='$this->email' WHERE `id` = $this->id";
         if (!$conn->query($sql)) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            return;
+            return false;
         }
+        return true;
     }
-    public function update()
+    public function updatePassword()
     {
         $conn = require_once path('/helpers/Connection.php');
-        $sql = "UPDATE `usuarios` SET `nombre`='$this->nombre',`apellido`='$this->apellido',`email`='$this->email',`password`='" . password_hash($this->password, PASSWORD_BCRYPT) . "' WHERE `id` = $this->id";
+        $sql = "UPDATE `usuarios` SET `password`='" . password_hash($this->password, PASSWORD_BCRYPT) . "' WHERE `id` = $this->id";
         if (!$conn->query($sql)) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            return;
+            return false;
         }
+        return true;
     }
     public static function delete($id)
     {
         $conn = require_once path('/helpers/Connection.php');
         $sql = "DELETE FROM `usuarios` WHERE `id` = $id";
         if (!$conn->query($sql)) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            return;
+            return false;
         }
+        return true;
     }
 }

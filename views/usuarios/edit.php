@@ -2,7 +2,7 @@
     <main>
         <div class="card">
             <h2 class="card-title">Modificar usuario #<?php echo $usuario->getId();?></h2>
-            <form action="<?php echo url('/editar-usuario')?>" method="POST">
+            <form action="<?php echo url('/editar-usuario')?>" method="POST" onsubmit="return verify(this);" autocomplete="off">
                 <input type="hidden" name="id" value="<?php echo $usuario->getId(); ?>">
                 <div class="input-group">
                     <label for="nombre">Nombre</label>
@@ -25,4 +25,26 @@
             </form>
         </div>
     </main>
+    <script type="text/javascript">
+        function verify(form){
+            resetValidations(form)
+            let nombre = document.querySelector('#nombre');
+            let apellido = document.querySelector('#apellido');
+            let email = document.querySelector('#email');
+            let valid = true;
+            if(nombre.value.trim() == ''){
+                valid = false;
+                showInputError(nombre, 'Debe completar el campo')
+            }
+            if(apellido.value.trim() == ''){
+                valid = false;
+                showInputError(apellido, 'Debe completar el campo')
+            }
+            if(email.value.trim() == ''){
+                valid = false;
+                showInputError(email, 'Debe completar el campo')
+            }
+            return valid;
+        }
+    </script>
 </div>

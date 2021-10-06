@@ -7,6 +7,7 @@ $router = new Router();
 
 $router->get('/login', 'AuthController@index');
 $router->post('/login', 'AuthController@login');
+$router->post('/logout', 'AuthController@logout');
 
 
 $router->get('/', 'UsuarioController@index');
@@ -16,6 +17,8 @@ $router->post('/nuevo-usuario', 'UsuarioController@store');
 $router->get('/editar-usuario', 'UsuarioController@edit');
 $router->post('/editar-usuario', 'UsuarioController@update');
 $router->post('/eliminar-usuario', 'UsuarioController@delete');
+$router->get('/cambiar-password', 'UsuarioController@editPassword');
+$router->post('/cambiar-password', 'UsuarioController@updatePassword');
 
 $router->get('/crear-tabla', function () {
   $conn = require_once path('/helpers/Connection.php');
