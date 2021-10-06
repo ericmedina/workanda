@@ -39,6 +39,9 @@ body {
   border-radius: .3rem;
   padding: 1rem;
   box-shadow: var(--shadow-card);
+}
+.card-login{
+  
   width: 90%;
 }
 .justify-end{
@@ -84,7 +87,7 @@ main>.card{
 }
 
 @media only screen and (min-width: 63em) {
-  .card-login, .card{
+  .card-login{
     width: 30%;
   }
 }
