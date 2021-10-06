@@ -23,7 +23,7 @@ class Router{
   }
 
   private function notfound(){
-    echo 'No se encontró ruta';
+    return view('404');
   }
 
   private function run(){

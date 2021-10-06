@@ -8,7 +8,7 @@
         </div>
         <div class="input-group">
           <label for="password">Contraseña</label>
-          <input type="password" name="password" id="password" placeholder="Ingrese su contraseña" autocomplete="new-password">
+          <input type="password" name="password" id="password" placeholder="Ingrese su contraseña" autocomplete="new-password" inputmode="email">
         </div>
         <div class="justify-end">
           <button class="btn btn-primary" type="submit">Ingresar</button>
