@@ -26,12 +26,10 @@ $router->get('/crear-tabla', function () {
   if (!$tables->num_rows) {
     $sql = "CREATE TABLE `usuarios` ( `id` INT(11) NOT NULL AUTO_INCREMENT ,  `nombre` VARCHAR(255) NOT NULL ,  `apellido` VARCHAR(255) NOT NULL ,  `email` VARCHAR(255) NOT NULL ,  `password` VARCHAR(255) NOT NULL ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;";
     if (!$conn->query($sql)) {
-      echo "Error: " . $sql . "<br>" . $conn->error;
       return;
     }
     $sql = "INSERT INTO `usuarios` (`nombre`,  `apellido`,  `email`,  `password`) VALUES ('Admin', 'Administrador', 'admin@admin.com', '".password_hash('123456', PASSWORD_BCRYPT)."')";
     if (!$conn->query($sql)) {
-      echo "Error: " . $sql . "<br>" . $conn->error;
       return;
     }
   }

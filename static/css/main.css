@@ -39,7 +39,7 @@ body {
   border-radius: .3rem;
   padding: 1rem;
   box-shadow: var(--shadow-card);
-  min-width: 30%;
+  width: 90%;
 }
 .justify-end{
   display: flex;
@@ -81,4 +81,10 @@ main>.card{
   background-color: var(--error-20);
   border-color: var(--error-40);
   color:var(--body-font);
+}
+
+@media only screen and (min-width: 63em) {
+  .card-login, .card{
+    width: 30%;
+  }
 }
